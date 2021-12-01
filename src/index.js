@@ -1,17 +1,31 @@
+// Import the React and ReactDom Libraries - goes into node_modules folder and imports these 2 folders
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+// Create a react component - a function or a class that produces html to show the user by
+// using JSX and handles feedback from the user by using event handlers
+
+
+const App = () => {
+    
+    const buttonText = { text: 'Click-Me'};
+    const labelText = 'Enter Name:'
+
+    return ( 
+        <div>
+            <label className="label" htmlFor= "name">
+                { labelText }
+            </label>
+            <input id="name" type="text"/>
+            <button style={{ backgroundColor: 'blue', color: 'white' }}>
+                {buttonText.text}   
+            </button>
+        </div>
+    );
+};
+
+// Take the react componenta and show it on the screen
+ReactDom.render(
+    <App />,
+    document.querySelector('#root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
